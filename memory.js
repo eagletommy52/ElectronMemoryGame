@@ -116,7 +116,7 @@ class MatchingGame {
             let elapsed = Date.now()-this.startTime;    
             this.timerBox.innerHTML = `${Math.floor(elapsed/1000/60)<10?'0'+Math.floor(elapsed/1000/60):Math.floor(elapsed/1000/60)}:${Math.floor(elapsed/1000%60)<10?'0'+Math.floor(elapsed/1000%60):Math.floor(elapsed/1000%60)}`;
             this.gameScore -= 100;
-            this.scoreBox.innerHTML = `Attempts: &nbsp;${this.attempts} &nbsp;Matches: &nbsp;${this.matches} &nbsp;Average: &nbsp;${Math.round(this.matches/this.attempts*100)?Math.round(this.matches/this.attempts*100):0}% &nbsp;Score: &nbsp;${this.gameScore} &nbsp;`;
+            this.scoreBox.innerHTML = `Attempts: &nbsp;${this.attempts} &nbsp;Matches: &nbsp;${this.matches} &nbsp;Average: &nbsp;${Math.round(this.matches/this.attempts*100)?Math.round(this.matches/this.attempts*100):0}% &nbsp;Score: &nbsp;${this.gameScore*this.numTiles/12} &nbsp;`;
         }
         endGame(){
             this.msgBox.innerHTML = "All Tiles Matched -- Way to Go!";
