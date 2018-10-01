@@ -26,13 +26,15 @@ class MatchingGame {
         this.realPicsArr = getWebPics(30);
         }
     setupGame(){
+        this.playBtn.disabled = true;
+        if(this.tickInterval) {clearInterval(this.tickInterval)};
         this.numTiles = document.getElementById('diffSelect').value;
         //create instances of Match Tiles
         this.app.innerHTML = "";
         this.matches = 0;
         this.attempts = 0;
         this.lastItem = undefined;
-        this.gameScore=1000;
+        this.gameScore= 1000;
         this.gameArr = this.numArr.slice(0,this.numTiles);
         //this.gameArr = this.picsArr.slice(0,this.numTiles);
         this.gameArr = [...this.gameArr, ...this.gameArr];
@@ -47,6 +49,7 @@ class MatchingGame {
         secs == 0 ? this.startGame() : setTimeout(() => this.startCountdown(secs-1), 1000);
     }
     startGame(){
+        this.playBtn.disabled = false;
         //flip every tile on the game board
         this.gameArr.map(tile=>tile.tileListen());
         this.gameArr.map(tile=>tile.flip());
